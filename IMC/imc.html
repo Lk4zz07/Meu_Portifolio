@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora IMC</title>
+</head>
+<body>
+
+    <h1>Calculadora IMC</h1>
+    <h2>Você saberá pelos calculos de peso e altura pra saber o imc</h2>
+    <p>Digite seu peso:</p>
+    <input id="peso" type="number">
+
+    <p>Digite sua altura:</p>
+    <input id="altura" type="number">
+
+    <button type="button" onclick="calcular()">
+        Calcular
+    </button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function calcular(){
+
+            var peso, altura, imc, texto;
+
+            peso = document.getElementById("peso").value;
+            altura = document.getElementById("altura").value;
+
+            imc = peso / (altura * altura);
+
+            if(imc < 18.5){
+                texto = "Seu IMC é " + imc + ". Abaixo do peso.";
+            }
+
+            if(imc >= 18.5 && imc < 25){
+                texto = "Seu IMC é " + imc + ". Peso normal.";
+            }
+
+            if(imc >= 25){
+                texto = "Seu IMC é " + imc + ". Acima do peso.";
+            }
+
+            document.getElementById("resultado").innerHTML = texto;
+        }
+    </script>
+
+</body>
+</html>
